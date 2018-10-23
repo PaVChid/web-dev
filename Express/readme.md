@@ -222,4 +222,53 @@ Commit your changes into git
 ```
 git commit -m "book_view.ejs creation"
 ```
+Now add more details into our page. Replace this content into the body of book_view.ejs 
+```
+<h1>List of Books (<%= count %>)</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Description</th>
+      </tr>  
+      <% for (book of books){ %>
+        <tr>
+            <td><%=book.name %></td>
+            <td><%=book.author %></td>
+            <td><%=book.quantity %></td>
+            <td><%=book.price %></td>
+            <td><%=book.description %></td>
+          </tr>
+    <% } %>
+      </table>
+```
+Let's do the backend data inputs. Modify the books(list of dictionary) in app.js to something like this 
+```
+var books=[
+  {name:'The Alchemist',author:'Paulo Coelho',price:'₹350',quantity:'120',description:'The Alchemist follows the journey of an Andalusian shepherd boy named Santiago'},
+  {name:'Half Girlfriend',author:'Chetan Bhagat',price:'₹350',quantity:'100',description:'Half Girlfriend is an Indian English coming of age, young adult romance novel by Indian author Chetan Bhagat'},
+  {name:'2 States',author:'Chetan Bhagat',price:'₹350',quantity:'180',description:'he Story of My Marriage commonly known as 2 States is a 2009 novel written by Chetan Bhagat.'},
+]
+```
+Add some css content to the table that we created. Go to public/stylesheets/style.css and this content.
+```
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+```
+Reload the server and go to this url again http://localhost:3000/books
+Yaay! We did it
