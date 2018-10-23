@@ -1,16 +1,15 @@
 Make sure you are having npm installed on your system with this command
 ```
 IN:npm -v
-
 ```
-If not install npm before proceeding
+Note : If not, Install npm before proceeding
 
 
 Install express
-
+```
 IN:npm install express-generator -save
-OUT:
-
+```
+```
 IN:express --view=ejs --git
 OUT:
  create : public\
@@ -36,19 +35,27 @@ OUT:
    run the app:
      > SET DEBUG=web-project-2:* & npm start
 
+```
+Just to make sure, Again install npm on your working directory
 
+```
 IN:npm install
 OUT:
 npm notice created a lockfile as package-lock.json. You should commit this file.
 added 53 packages from 38 contributors and audited 141 packages in 4.091s
 found 0 vulnerabilities
-
+```
+To start server on your folder
+```
 IN:npm start
 OUT:
+```
 
-Then Get out of the terminal using Ctrl+C (Windows). To create version control install git and the proceed below
+Then Get out of the terminal using Ctrl+C (Windows).Add version control to your folder.
+ To create version control install git and the proceed below
 
 To check whether the git is installed. Type git
+```
 IN:git
 OUT:
 usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
@@ -93,34 +100,115 @@ collaborate (see also: git help workflows)
 'git help -a' and 'git help -g' list available subcommands and some
 concept guides. See 'git help <command>' or 'git help <concept>'
 to read about a specific subcommand or concept.
-
+```
 If succesfully installed, you 'll get output as above
 
 To check git status
+```
 IN: git status
-
+```
+```
 Intialise git in your folder
 IN:git init
-
+```
 
 Add your files and make it ready to commit
+```
 IN:git add .
-
+```
 Then to commit
+```
 IN:git commit -m "First Commit"
-
+```
 Again check git status
+```
 IN:git status
-
+```
 Add your credentials using following commands
+```
 git config --global user.name "Your Name"
 git config --global user.email "youremail@someorganistaion.com"
+```
+
+
+Now lets create a simple application
+Open app.js file in your working directory
+
+Find the line containing below chunck of code
+
+Find this 
+```
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+```
+Replace with
+```
+var router = express.Router();
+```
+Find this
+```
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+```
+Replace with
+```
+app.use(router);
+```
+Below this line 
+```
+var router = express.Router();
+```
+Add following code
+```
+var books=[
+  {name:'XP Explained',author:'Karl'},
+  {name:'XP Explained 2',author:'Karl'}
+]
+
+router.get('/',function(req,res,next){
+  res.render('index',{title:'Express'});
+});
+
+router.get('/books',function(req,res,next){
+  res.render('books_view',{count:books.length,books:books});
+});
+```
+Then create a new 'books_view.ejs' file in your working directory.
+Paste this code into that file
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Books</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>List of Books (<%= count %>)</h1>
+    <% for (book of books){ %>
+        <p>
+            <%=book.name %>
+        </p>
+
+    <% } %>
+  </body>
+</html>
+```
+Now Open your browser and go to this url : http://localhost:3000/books
+&nbsp;Your browser will show something like this 
+```
+List of Books (2)
+XP Explained
+
+XP Explained 2
+```
+
 
 To check what changes you have made use git diff
+```
 IN: git diff
+```
+Add your changes to the git
+```
+git add .
+```
 
-name
-author
-description
-price
-available_quantity

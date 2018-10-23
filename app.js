@@ -4,8 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//var indexRouter = require('./routes/index');
+//var usersRouter = require('./routes/users');
+var router = express.Router();
 
 var app = express();
 
@@ -19,8 +20,27 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+var books=[
+  {name:'XP Explained',author:'Karl'},
+  {name:'XP Explained 2',author:'Karl'}
+]
+
+router.get('/',function(req,res,next){
+  res.render('index',{title:'Express'});
+});
+
+router.get('/books',function(req,res,next){
+  res.render('books_view',{count:books.length,books:books});
+});
+
+
+
+
+
+//app.use('/', indexRouter);
+//app.use('/users', usersRouter);
+app.use(router);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
