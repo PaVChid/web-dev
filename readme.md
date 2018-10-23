@@ -107,8 +107,9 @@ To check git status
 ```
 IN: git status
 ```
-```
+
 Intialise git in your folder
+```
 IN:git init
 ```
 
@@ -194,19 +195,22 @@ Paste this code into that file
 </html>
 ```
 Now Open your browser and go to this url : http://localhost:3000/books
-&nbsp;Your browser will show something like this 
+<br/>Your browser will show something like this 
 ```
 List of Books (2)
 XP Explained
 
 XP Explained 2
 ```
-
+Note: Use Ctrl+C to exit from server and npm start to start the server.<br>
+Execute all terminal commands after terminating the server.
 
 To check what changes you have made use git diff
 ```
 IN: git diff
 ```
+Note: Press q to exit from git messege
+
 Add your changes to the git
 ```
 git add .
