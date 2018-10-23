@@ -1,0 +1,37 @@
+npm install express-generator -save
+
+
+IN:express --view=ejs --git
+OUT:
+ create : public\
+   create : public\javascripts\
+   create : public\images\
+   create : public\stylesheets\
+   create : public\stylesheets\style.css
+   create : routes\
+   create : routes\index.js
+   create : routes\users.js
+   create : views\
+   create : views\error.ejs
+   create : views\index.ejs
+   create : .gitignore
+   create : app.js
+   create : package.json
+   create : bin\
+   create : bin\www
+
+   install dependencies:
+     > npm install
+
+   run the app:
+     > SET DEBUG=web-project-2:* & npm start
+
+
+IN:npm install
+OUT:
+npm notice created a lockfile as package-lock.json. You should commit this file.
+added 53 packages from 38 contributors and audited 141 packages in 4.091s
+found 0 vulnerabilities
+
+IN:npm start
+OUT:
