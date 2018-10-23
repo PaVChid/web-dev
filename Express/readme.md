@@ -218,4 +218,8 @@ Add your changes to the git
 ```
 git add .
 ```
+Commit your changes into git
+```
+git commit -m "book_view.ejs creation"
+```
 

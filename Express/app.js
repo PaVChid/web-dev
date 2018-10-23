@@ -21,8 +21,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var books=[
-  {name:'XP Explained',author:'Karl'},
-  {name:'XP Explained 2',author:'Karl'}
+  {name:'The Alchemist',author:'Paulo Coelho',price:'₹350',quantity:'120',description:'The Alchemist follows the journey of an Andalusian shepherd boy named Santiago'},
+  {name:'Half Girlfriend',author:'Chetan Bhagat',price:'₹350',quantity:'100',description:'Half Girlfriend is an Indian English coming of age, young adult romance novel by Indian author Chetan Bhagat'},
+  {name:'2 States',author:'Chetan Bhagat',price:'₹350',quantity:'180',description:'he Story of My Marriage commonly known as 2 States is a 2009 novel written by Chetan Bhagat.'},
 ]
 
 router.get('/',function(req,res,next){
