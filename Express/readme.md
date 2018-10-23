@@ -116,7 +116,7 @@ Add your files and make it ready to commit
 ```
 git add .
 ```
-Then to commit
+ Commit your file
 ```
 git commit -m "First Commit"
 ```
@@ -134,7 +134,7 @@ git config --global user.email "youremail@someorganistaion.com"
 Now lets create a simple application
 Open app.js file in your working directory
 
-Find the line containing below chunck of code
+Find the line containing below chunk of code
 
 Find this 
 ```
