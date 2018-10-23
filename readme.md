@@ -193,7 +193,11 @@ Paste this code into that file
   </body>
 </html>
 ```
-Now Open your browser and go to this url : http://localhost:3000/books
+Now start npm server 
+```
+npm start
+```
+and go to this url : http://localhost:3000/books
 <br/>Your browser will show something like this 
 ```
 List of Books (2)
