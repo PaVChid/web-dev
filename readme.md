@@ -1,13 +1,13 @@
 Make sure you are having npm installed on your system with this command
 ```
-IN:npm -v
+npm -v
 ```
 Note : If not, Install npm before proceeding
 
 
 Install express
 ```
-IN:npm install express-generator -save
+npm install express-generator -save
 ```
 ```
 IN:express --view=ejs --git
@@ -47,8 +47,7 @@ found 0 vulnerabilities
 ```
 To start server on your folder
 ```
-IN:npm start
-OUT:
+npm start
 ```
 
 Then Get out of the terminal using Ctrl+C (Windows).Add version control to your folder.
@@ -105,25 +104,25 @@ If succesfully installed, you 'll get output as above
 
 To check git status
 ```
-IN: git status
+git status
 ```
 
 Intialise git in your folder
 ```
-IN:git init
+git init
 ```
 
 Add your files and make it ready to commit
 ```
-IN:git add .
+git add .
 ```
 Then to commit
 ```
-IN:git commit -m "First Commit"
+git commit -m "First Commit"
 ```
 Again check git status
 ```
-IN:git status
+git status
 ```
 Add your credentials using following commands
 ```
@@ -207,7 +206,7 @@ Execute all terminal commands after terminating the server.
 
 To check what changes you have made use git diff
 ```
-IN: git diff
+git diff
 ```
 Note: Press q to exit from git messege
 
