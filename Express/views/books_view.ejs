@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Books</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1 style='text-align: center'>Book Store</h1>
-    <h2>List of Books (<%= count %>)</h2>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Author</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Description</th>
-      </tr>  
-      <% for (book of books){ %>
-        <tr>
-            <td><%=book.name %></td>
-            <td><%=book.author %></td>
-            <td><%=book.quantity %></td>
-            <td><%=book.price %></td>
-            <td><%=book.description %></td>
-          </tr>
+
+<head>
+  <title>Books</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1 style='text-align: center'>Book Store</h1>
+  <h2>List of Books (
+    <%= count %>)</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Borrow</th>
+    </tr>
+    <% for (book of books){ %>
+    <tr>
+      <td>
+        <%=book.name %>
+      </td>
+      <td>
+        <%=book.author %>
+      </td>
+      <td>
+        <%=book.quantity %>
+      </td>
+      <td>
+        <%=book.price %>
+      </td>
+      <td>
+        <%=book.description %>
+      </td>
+      <td>
+        <form action="/borrow_book" method="POST"> 
+          <input type="text" name="bookName" value=<%=book.name %> hidden=true>
+          <input type="submit" name='borrow' value="Borrow!"></form></td>
+    </tr>
     <% } %>
-      </table>
-  </body>
+  </table>
+</body>
+
 </html>

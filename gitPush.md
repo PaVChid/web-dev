@@ -1,9 +1,9 @@
 - Install github in you system<br><br>
-Check whether git is installed on your system
+Open up the terminal/CMD/Powershell andCheck whether git is installed on your system
 ```
 git status
 ```
-To start git version control on your directory
+To start git version control on your directory. Go to the directory you work on and execute the following command
 ```
 git init
 ```
@@ -50,7 +50,8 @@ Go to the directory, where you initalised git using 'git init'. And then
 ```
 git add .
 ```
-This will make add your changes
+This will add your changes<br>
+
 Commit your changes
 
 ```

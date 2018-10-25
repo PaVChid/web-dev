@@ -272,3 +272,44 @@ tr:nth-child(even) {
 ```
 Reload the server and go to this url again http://localhost:3000/books
 Yaay! We did it
+
+Then what if , we want add data into the existing data on runtime.Let's try that it new ejs file. So create new ejs file 'books_new.ejs'
+
+Copy the content of books_view.ejs into the file we created and replace the content in body with the content below
+```
+ <h1 style='text-align: center'>Book Store</h1>
+    <h1>New Book</h1>
+    <form>
+        <p>
+            <label>Book Name</label>
+            <input type="text" name="name">
+        </p>
+
+        <p>
+            <label>Author</label>
+            <input type="text" name="author">
+        </p>
+
+        <p>
+            <label>Quantity</label>
+            <input type="number" name="quantity">
+        </p>
+
+        <p>
+            <label>Price</label>
+            <input type="number" name="price">
+        </p>
+        <p>
+            <label>Description</label>
+            <input type="text" name="info">
+        </p>
+         <p>
+
+            <input type="submit" name="submit">
+        </p>
+    </form>
+```
+We need to make changes in app.js inorder to get the data entered the webpage
+```
+
+```
