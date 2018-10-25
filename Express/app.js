@@ -20,14 +20,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-store.add({
-  name:'The_Alchemist',author:'Paulo Coelho',price:'₹350',quantity:'120',description:'The Alchemist follows the journey of an Andalusian shepherd boy named Santiago'},
-  function(err){
-    if (err) {
-      throw err;
-    }
-  }
-);
+// store.add({
+//   name:'The_Alchemist',author:'Paulo Coelho',price:'₹350',quantity:'120',description:'The Alchemist follows the journey of an Andalusian shepherd boy named Santiago'},
+//   function(err){
+//     if (err) {
+//       throw err;
+//     }
+//   }
+// );
 
 // var books=[
 //   {name:'The_Alchemist',author:'Paulo Coelho',price:'₹350',quantity:'120',description:'The Alchemist follows the journey of an Andalusian shepherd boy named Santiago'},
@@ -53,9 +53,7 @@ router.get('/books_new',function(req,res,next){
 router.post('/books_new',function(req,res,next){
   console.log(req.body);
   //books.push(req.body);
-  store.add(req.body,function(err,books)
-
-  )
+  //store.add(req.body,function(err,books));
   res.render('books_new',{});
 });
 router.post('/borrow_book',function(req,res,next){
