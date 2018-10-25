@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+	<title>.:: Mobile Web App ::.</title>
+<script type="text/javascript">
+	function addRecord()
+	{
+		// Array |JSON Format
+		var entry={};
+		//Primary Key
+		entry.id=localStorage.length+1;
+		//value
+		entry.firstName=document.frmLocalStorage.txtFirstName.value;
+		//Store
+		localStorage.setItem(entry.id,JSON.stringify(entry));
+	}
+	
+	function showRecords()
+	{
+	var sOutput="No record to display";
+	console.log(localStorage.length)
+	if(localStorage.length>0)
+	{
+	sOutput="<ul>";
+	for (iCounter=0;iCounter<localStorage.length;iCounter++)
+		{
+		key=localStorage.key(iCounter);
+		var jsonElemen=JSON.parse(localStorage.getItem(key));
+		sOutput+="<li>"+jsonElemen.firstName+"";
+		sOutput+="</li>";
+		}
+	sOutput+="</ul>";	
+	}
+	else
+	{
+	var sOutput="No record to display";
+	}
+	document.getElementById("recordList").innerHTML=sOutput;
+	console.log(sOutput);
+
+	}
+
+</script>
+
+</head>
+<body onload="showRecords()">
+	<form id="frmLocalStorage" name="frmLocalStorage" onsubmit="addRecord();">
+		<input id="txtFirstName" name="txtFirstName"
+			type="text"
+			placeholder="Enter Name"
+			required="required"/>
+		<input type="submit" value="Save &rarr;"/>
+		<h3>Records List </h3>
+		<p id="recordList"></p>
+	</form>
+
+</body>
+</html>
