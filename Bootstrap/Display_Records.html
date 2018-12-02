@@ -2,20 +2,20 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-	<title>.:: Mobile Web App ::.</title>
+	<title>Display Record</title>
 <script type="text/javascript">
 	function addRecord()
 	{
-		// Array |JSON Format
+
 		var entry={};
-		//Primary Key
+
 		entry.id=localStorage.length+1;
-		//value
+
 		entry.firstName=document.frmLocalStorage.txtFirstName.value;
-		//Store
+
 		localStorage.setItem(entry.id,JSON.stringify(entry));
 	}
-	
+
 	function showRecords()
 	{
 	var sOutput="No record to display";
@@ -30,7 +30,7 @@
 		sOutput+="<li>"+jsonElemen.firstName+"";
 		sOutput+="</li>";
 		}
-	sOutput+="</ul>";	
+	sOutput+="</ul>";
 	}
 	else
 	{
@@ -44,13 +44,13 @@
 </script>
 
 </head>
-<body onload="showRecords()">
+<body onload="showRecords()" background="https://img.freepik.com/free-vector/abstract-paper-hexagon-white-background_51543-7.jpg?size=338&ext=jpg"><br><br><br>
 	<form id="frmLocalStorage" name="frmLocalStorage" onsubmit="addRecord();">
 		<input id="txtFirstName" name="txtFirstName"
 			type="text"
 			placeholder="Enter Name"
 			required="required"/>
-		<input type="submit" value="Save &rarr;"/>
+		<input type="submit" value="Save &rarr;"/><br><br>
 		<h3>Records List </h3>
 		<p id="recordList"></p>
 	</form>
