@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsApp Chat Reader</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/chat.css" />
+</head>
+<body>
+  <div class="chat-page">
+    <div class="chat-header">
+      <a href="/chat" class="back-link">&larr; Upload another</a>
+      <h1>Chat: <%= participants.join(' & ') %></h1>
+      <div class="chat-stats">
+        <span><strong><%= totalMessages %></strong> messages</span>
+        <span><strong><%= participants.length %></strong> participants</span>
+        <% for (var p in stats) { %>
+          <span><strong><%= p %></strong>: <%= stats[p].count %> msgs, <%= stats[p].words %> words</span>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="chat-container">
+      <% var lastDate = ''; %>
+      <% messages.forEach(function(msg, i) { %>
+        <% if (msg.date !== lastDate) { %>
+          <div class="date-divider"><span><%= msg.date %></span></div>
+          <% lastDate = msg.date; %>
+        <% } %>
+
+        <% if (msg.isSystem) { %>
+          <div class="system-msg"><%= msg.text %></div>
+        <% } else { %>
+          <div class="msg <%= msg.sender === participants[0] ? 'msg-left' : 'msg-right' %>">
+            <div class="msg-sender"><%= msg.sender %></div>
+            <div class="msg-text"><%= msg.text %></div>
+            <div class="msg-time"><%= msg.time %></div>
+          </div>
+        <% } %>
+      <% }); %>
+    </div>
+  </div>
+</body>
+</html>

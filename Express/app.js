@@ -5,6 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var store = require('json-fs-store');
 var WebSocket=require('ws');
+var multer = require('multer');
+var whatsapp = require('./whatsapp-parser');
+
+var upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 
 //var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
@@ -70,6 +74,29 @@ router.post('/borrow_book',function(req,res,next){
 // )
 });
 
+
+// WhatsApp Chat Reader routes
+router.get('/chat', function(req, res) {
+  res.render('chat_upload', {});
+});
+
+router.post('/chat', upload.single('chatfile'), function(req, res) {
+  if (!req.file) {
+    return res.render('chat_upload', { error: 'Please select a .txt file to upload.' });
+  }
+  var text = req.file.buffer.toString('utf-8');
+  var parsed = whatsapp.parseChat(text);
+  if (parsed.messages.length === 0) {
+    return res.render('chat_upload', { error: 'Could not parse any messages. Make sure this is a WhatsApp chat export.' });
+  }
+  var stats = whatsapp.getStats(parsed);
+  res.render('chat_view', {
+    messages: parsed.messages,
+    participants: parsed.participants,
+    totalMessages: parsed.totalMessages,
+    stats: stats
+  });
+});
 
 // wss.on('connection',function connection(ws){
 //   ws.o('message',function(data){

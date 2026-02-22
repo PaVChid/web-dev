@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsApp Chat Reader</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/chat.css" />
+</head>
+<body>
+  <div class="chat-upload-container">
+    <h1>WhatsApp Chat Reader</h1>
+    <p>Upload a WhatsApp chat export (.txt) to view and analyze your conversation.</p>
+    <p class="hint">To export: Open WhatsApp chat &rarr; Menu &rarr; More &rarr; Export chat &rarr; Without media</p>
+
+    <form action="/chat" method="POST" enctype="multipart/form-data" class="upload-form">
+      <label for="chatfile" class="file-label">
+        <span class="file-icon">&#128172;</span>
+        <span>Choose .txt file</span>
+      </label>
+      <input type="file" id="chatfile" name="chatfile" accept=".txt" required />
+      <button type="submit">Read Chat</button>
+    </form>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+      <p class="error"><%= error %></p>
+    <% } %>
+  </div>
+</body>
+</html>

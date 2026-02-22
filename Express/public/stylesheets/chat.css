@@ -1,0 +1,197 @@
+/* WhatsApp Chat Reader Styles */
+
+/* Upload page */
+.chat-upload-container {
+  max-width: 500px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.chat-upload-container h1 {
+  color: #075e54;
+  margin-bottom: 10px;
+}
+
+.hint {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 30px;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.file-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #f0f0f0;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: border-color 0.2s;
+}
+
+.file-label:hover {
+  border-color: #075e54;
+}
+
+.file-icon {
+  font-size: 24px;
+}
+
+input[type="file"] {
+  margin-top: 5px;
+}
+
+.upload-form button {
+  padding: 10px 30px;
+  background: #075e54;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.upload-form button:hover {
+  background: #128c7e;
+}
+
+.error {
+  color: #d9534f;
+  margin-top: 15px;
+}
+
+/* Chat display page */
+.chat-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.chat-header {
+  position: sticky;
+  top: 0;
+  background: #075e54;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 15px;
+}
+
+.chat-header h1 {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.back-link {
+  color: #dcf8c6;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.chat-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 12px;
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+/* Chat container */
+.chat-container {
+  background: #e5ddd5;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+/* Date divider */
+.date-divider {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.date-divider span {
+  background: #d4eaf5;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* System messages */
+.system-msg {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  background: #fdf9c4;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin: 8px auto;
+  max-width: 80%;
+}
+
+/* Chat bubbles */
+.msg {
+  max-width: 75%;
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin: 4px 0;
+  clear: both;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.msg-left {
+  background: #ffffff;
+  float: left;
+  border-top-left-radius: 0;
+}
+
+.msg-right {
+  background: #dcf8c6;
+  float: right;
+  border-top-right-radius: 0;
+}
+
+.msg-sender {
+  font-size: 11px;
+  font-weight: bold;
+  color: #075e54;
+  margin-bottom: 2px;
+}
+
+.msg-right .msg-sender {
+  color: #6b4e00;
+}
+
+.msg-text {
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.msg-time {
+  font-size: 10px;
+  color: #999;
+  text-align: right;
+  margin-top: 2px;
+}
+
+/* Clearfix for floated bubbles */
+.msg + .date-divider,
+.msg + .system-msg,
+.chat-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
